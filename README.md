@@ -58,22 +58,22 @@ The repository contains multiple 64-bit multiplier architectures implemented and
 64bit-Pipelined-Booth-Multiplier
 │
 ├── Array_Multiplier
-│   ├── design.sv
+│   ├── design.sv.txt
 │   ├── Array_Stats.txt
-│   ├── run.ys
+│   ├── run.ys.txt
 │   └── Array_Stats_screenshot.png
 │
 ├── Booth_Multiplier
-│   ├── design.sv
+│   ├── design.sv.txt
 │   ├── Booth_Stats.txt
-│   ├── testbench.sv
-│   └── screenshot.png
+│   ├── testbench.sv.txt
+│   └── Booth_Stats_screenshot
 │
 ├── Dadda_Multiplier
-│   ├── design.sv
-│   ├── output.txt
-│   ├── run.ys
-│   └── screenshot.png
+│   ├── design.sv.txt
+│   ├── Dadda_Stats.txt
+│   ├── run.ys.txt
+│   └── Dadda_Stats_screenshot
 │
 └── README.md
 ```
