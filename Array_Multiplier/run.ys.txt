@@ -1,0 +1,4 @@
+read_verilog -sv design.sv
+hierarchy -top baseline_array_multiplier
+synth -top baseline_array_multiplier
+tee -o output.txt stat

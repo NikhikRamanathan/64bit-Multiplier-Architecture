@@ -1,0 +1,4 @@
+read_verilog -sv design.sv
+hierarchy -top dadda_multiplier_64bit
+synth -top dadda_multiplier_64bit
+tee -o output.txt stat

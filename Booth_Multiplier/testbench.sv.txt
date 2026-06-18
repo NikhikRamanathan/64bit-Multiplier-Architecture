@@ -1,0 +1,44 @@
+`timescale 1ns/1ps
+
+module testbench;
+
+    // 1. Properly declare signals before using them in the UUT
+    logic [63:0] test_input_A;
+    logic [63:0] test_input_B;
+    logic [127:0] simulated_product;
+    integer file_handle;
+
+    // 2. Instantiate UUT
+    array_multiplier_64bit uut (
+        .multiplicand(test_input_A),
+        .multiplier(test_input_B),
+        .final_product(simulated_product)
+    );
+
+    initial begin
+        // Open file
+        file_handle = $fopen("output.txt", "w");
+        if (file_handle == 0) begin
+            $display("Error: Could not open output.txt");
+            $finish;
+        end
+
+        // Test Case 1
+        test_input_A = 64'd12;
+        test_input_B = 64'd5;
+        #10;
+        $fdisplay(file_handle, "Time = %0dns | A = %0d, B = %0d | Product = %0d", $time, test_input_A, test_input_B, simulated_product);
+
+        // Test Case 2
+        test_input_A = 64'd1000000000;
+        test_input_B = 64'd2000000000;
+        #10;
+        $fdisplay(file_handle, "Time = %0dns | A = %0d, B = %0d | Product = %0d", $time, test_input_A, test_input_B, simulated_product);
+
+        // Close file and finish
+        $fclose(file_handle);
+        $display("Verification Complete. File written.");
+        $finish;
+    end
+
+endmodule

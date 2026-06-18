@@ -1,0 +1,22 @@
+4. Printing statistics.
+
+=== baseline_array_multiplier ===
+
+   Number of wires:              36030
+   Number of wire bits:          36283
+   Number of public wires:           3
+   Number of public wire bits:     256
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:              36155
+     $_ANDNOT_                   11161
+     $_AND_                        469
+     $_MUX_                       4031
+     $_NAND_                       541
+     $_NOR_                       3301
+     $_NOT_                       1205
+     $_ORNOT_                     1135
+     $_OR_                        6312
+     $_XNOR_                      1306
+     $_XOR_                       6694
