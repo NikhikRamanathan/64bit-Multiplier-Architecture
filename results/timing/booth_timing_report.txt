@@ -1,0 +1,10 @@
+Architecture: Radix-4 Booth Multiplier
+
+Clock Constraint: 10 ns virtual clock
+
+Critical Path Delay: 15.91 ns
+Maximum Frequency: 62.85 MHz
+Slack @ 10 ns: -5.91 ns
+
+Observation:
+The Radix-4 Booth multiplier reduced the critical path delay significantly compared with the Array multiplier. Booth encoding reduced the number of partial products, improving timing and area efficiency.

@@ -1,0 +1,10 @@
+Architecture: Dadda Multiplier
+
+Clock Constraint: 10 ns virtual clock
+
+Critical Path Delay: 6.66 ns
+Maximum Frequency: 150.15 MHz
+Slack @ 10 ns: +3.34 ns
+
+Observation:
+The Dadda multiplier achieved the shortest critical path delay and positive slack under the 10 ns timing constraint. This makes it the strongest architecture in terms of speed among the three evaluated designs.

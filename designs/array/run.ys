@@ -1,0 +1,11 @@
+read_verilog -sv design.sv
+
+hierarchy -check -top array_multiplier_64bit
+
+synth -top array_multiplier_64bit
+
+abc -liberty /home/nikhil/vlsi_project/PDK/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+stat -liberty /home/nikhil/vlsi_project/PDK/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+write_verilog synth_netlist.v

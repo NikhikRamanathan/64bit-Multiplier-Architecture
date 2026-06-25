@@ -1,0 +1,73 @@
+// =======================================================================
+// Design Name: 64-bit Radix-4 Booth Multiplier (Fixed for Icarus Verilog)
+// Description: High-performance parallel multiplier utilizing Booth's 
+//              recoding algorithm. Fixed variable bit slicing for strict 
+//              open-source compilers.
+// =======================================================================
+
+module booth_multiplier_64bit (
+    input  logic [63:0]  multiplicand,  // Input A
+    input  logic [63:0]  multiplier,    // Input B
+    output logic [127:0] final_product  // 128-bit output result
+);
+
+    // Array to store the 32 generated partial products
+    logic [127:0] partial_products [0:31];
+    
+    always @* begin
+        // Local variables
+        logic [64:0] multiplier_padded;
+        logic [2:0]  booth_group;
+        logic [127:0] base_value;
+        logic        is_negative;
+
+        // Step 1: Pad the multiplier by appending a 0 to the right (LSB)
+        multiplier_padded = {multiplier, 1'b0};
+        
+        // Step 2: Generate the 32 Booth Partial Products
+        for (int i = 0; i < 32; i = i + 1) begin
+            
+            // FIXED: Using standard indexed part-select [base +: width] 
+            // This tells the compiler the slice is always exactly 3 bits wide.
+            booth_group = multiplier_padded[2*i +: 3];
+            
+            // Evaluate the 3-bit group based on the Radix-4 truth table
+            case (booth_group)
+                3'b001, 3'b010: begin 
+                    base_value  = {64'b0, multiplicand};       
+                    is_negative = 1'b0; 
+                end
+                3'b011: begin         
+                    base_value  = {63'b0, multiplicand, 1'b0};  
+                    is_negative = 1'b0; 
+                end
+                3'b100: begin         
+                    base_value  = {63'b0, multiplicand, 1'b0};  
+                    is_negative = 1'b1; 
+                end
+                3'b101, 3'b110: begin 
+                    base_value  = {64'b0, multiplicand};       
+                    is_negative = 1'b1; 
+                end
+                default: begin        
+                    base_value  = 128'b0;            
+                    is_negative = 1'b0; 
+                end
+            endcase
+            
+            // Step 3: Handle sign extension, negation, and positional shifting
+            if (is_negative) begin
+                partial_products[i] = (~base_value + 1'b1) << (2*i);
+            end else begin
+                partial_products[i] = base_value << (2*i);
+            end
+        end
+        
+        // Step 4: Accumulate all 32 partial products
+        final_product = 128'b0;
+        for (int i = 0; i < 32; i = i + 1) begin
+            final_product = final_product + partial_products[i];
+        end
+    end
+
+endmodule

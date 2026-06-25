@@ -1,0 +1,12 @@
+Architecture: Array Multiplier
+
+Clock Constraint: 10 ns virtual clock
+
+Critical Path Delay: 82.41 ns
+Maximum Frequency: 12.13 MHz
+Slack @ 10 ns: -72.41 ns
+
+Critical Output: final_product[126]
+
+Observation:
+The Array multiplier showed the longest critical path delay among the three evaluated architectures. This is expected because the array structure generates and accumulates many partial products through a relatively long combinational path.

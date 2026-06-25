@@ -1,0 +1,22 @@
+
+4. Printing statistics.
+
+=== dadda_multiplier_64bit ===
+
+   Number of wires:              25468
+   Number of wire bits:          33438
+   Number of public wires:          67
+   Number of public wire bits:    8037
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:              25529
+     $_ANDNOT_                    7825
+     $_AND_                       4000
+     $_NAND_                      1408
+     $_NOR_                        737
+     $_NOT_                        225
+     $_ORNOT_                      108
+     $_OR_                        2756
+     $_XNOR_                      2244
+     $_XOR_                       6226
