@@ -116,7 +116,7 @@ The corrected regenerated power update is represented by repository commit \text
 \section{Results}
 
 \subsection{Final PPA Comparison}
-Table~\ref{tab:ppa} presents the final evidence-backed PPA results. These values replace all earlier unsupported or stale summary-only values.
+Table~\ref{tab:ppa} presents the final evidence-backed PPA results obtained from the raw reports and mapped netlists described in the methodology.
 
 \begin{table*}[t]
 \centering
@@ -180,7 +180,7 @@ These results should not be interpreted as timing closure. Instead, they provide
 \end{figure}
 
 \subsection{Power}
-The regenerated OpenROAD reports show that the Radix-4 Booth multiplier has the lowest post-synthesis power estimate at 3.34 mW, followed by the Dadda multiplier at 3.49 mW and the Array multiplier at 4.03 mW. These values are much lower than earlier stale power values because the power reports were regenerated from the final SKY130-mapped netlists using a uniform activity setup. Since no placed-and-routed DEF or extracted parasitics are used, the power values are comparative post-synthesis estimates rather than post-layout signoff measurements.
+The regenerated OpenROAD reports show that the Radix-4 Booth multiplier has the lowest post-synthesis power estimate at 3.34 mW, followed by the Dadda multiplier at 3.49 mW and the Array multiplier at 4.03 mW. These values were generated from the final SKY130-mapped netlists using the uniform activity setup described in the methodology. Since no placed-and-routed DEF or extracted parasitics are used, the power values are comparative post-synthesis estimates rather than post-layout signoff measurements.
 
 \begin{figure}[t]
 \centering
